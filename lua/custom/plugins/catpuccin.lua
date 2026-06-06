@@ -1,0 +1,25 @@
+-- You can add your own plugins here or in other files in this directory!
+--  I promise not to create any merge conflicts in this directory :)
+--
+-- See the kickstart.nvim README for more information
+
+---@module 'lazy'
+---@type LazySpec
+local opts = { noremap = true, silent = true }
+return {
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000, -- Make sure to load this first before all other start plugins
+    config = function()
+      require("catppuccin").setup({
+        -- Optional: Configure Catppuccin options here
+        flavour = "mocha", -- latte, frappe, macchiato, mocha
+        transparent_background = false,
+      })
+      
+      -- Set the colorscheme inside the config function
+      vim.cmd.colorscheme "catppuccin"
+    end,
+  },
+}
