@@ -32,7 +32,7 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagn
 vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
 
 -- Open a clean horizontal terminal split at the bottom with <leader>t
-vim.keymap.set('n', '<leader>t', function()
+vim.keymap.set('n', '<leader>tt', function()
   vim.cmd('split | terminal') -- Split horizontally and open terminal
   vim.cmd('wincmd J')          -- Force it to the absolute bottom
   vim.cmd('resize 15')         -- Make it a comfortable 15 lines high

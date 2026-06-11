@@ -42,6 +42,39 @@ return {
       -- Magic jump-to-buffer mode
       { '<A-j>', '<Cmd>BufferPick<CR>',  desc = 'Buffer: Pick jump', opts },
     },
-  },
-}
+  
+    config = function()
+      require('barbar').setup({
+        options = {
+          exclude_ft = { 'terminal', 'toggleterm', 'qf' },
+        },
+      })
+
+    -- ── SAFE HIGHLIGHT LOADING ──────────────────────────────────────
+    -- We wrap the overrides in a trigger that waits for Catppuccin safely
+    vim.api.nvim_create_autocmd("ColorScheme", {
+      pattern = "catppuccin*",
+      callback = function()    local cp = require("catppuccin.palettes").get_palette("mocha")
+
+        local fg_active = cp.lavender  -- Color of the text for the active file
+        local bg_active = cp.surface1  -- Slightly lighter dark background for active tab
+        local bg_inactive = cp.mantle  -- Deep dark background for background tabs
+
+        -- Apply the color overrides to Neovim
+        local set_hl = vim.api.nvim_set_hl
+
+        -- Active Tab Styling (Text, Modifiers, and Background)
+        set_hl(0, 'BufferCurrent',      { fg = fg_active, bg = bg_active, bold = true })
+        set_hl(0, 'BufferCurrentIndex', { fg = fg_active, bg = bg_active })
+        set_hl(0, 'BufferCurrentMod',   { fg = cp.yellow, bg = bg_active, bold = true })
+        set_hl(0, 'BufferCurrentSign',  { fg = fg_active, bg = bg_active })
+
+        -- Inactive Tab Styling (Pushes unselected tabs into the background)
+        set_hl(0, 'BufferInactive',     { fg = cp.overlay1, bg = bg_inactive })
+        set_hl(0, 'BufferInactiveSign', { fg = bg_inactive, bg = bg_inactive })
+    end,
+    })
+    -- ────────────────────────────────────────────────────────────────
+  end,
+}}
 
