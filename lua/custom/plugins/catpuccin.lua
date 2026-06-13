@@ -3,9 +3,8 @@
 --
 -- See the kickstart.nvim README for more information
 
----@module 'lazy'
+---@module 'catpuccin'
 ---@type LazySpec
-local opts = { noremap = true, silent = true }
 return {
   {
     "catppuccin/nvim",
@@ -16,8 +15,9 @@ return {
         -- Optional: Configure Catppuccin options here
         flavour = "mocha", -- latte, frappe, macchiato, mocha
         transparent_background = false,
+        print("--- catpuccin.lua: Setup Loaded! ---")
       })
-      
+
       -- Set the colorscheme inside the config function
       vim.cmd.colorscheme "catppuccin"
     end,

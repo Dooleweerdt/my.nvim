@@ -60,6 +60,21 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
 
+-- ── BARBAR TAB CYCLING & MANAGEMENT ─────────────────────────────
+vim.keymap.set('n', '<A-,>', '<Cmd>BufferPrevious<CR>', { noremap = true, silent = true, desc = 'Buffer: Previous' })
+vim.keymap.set('n', '<A-.>', '<Cmd>BufferNext<CR>',     { noremap = true, silent = true, desc = 'Buffer: Next' })
+
+vim.keymap.set('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', { noremap = true, silent = true, desc = 'Buffer: Move Previous' })
+vim.keymap.set('n', '<A->>', '<Cmd>BufferMoveNext<CR>',     { noremap = true, silent = true, desc = 'Buffer: Move Next' })
+
+vim.keymap.set('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', { noremap = true, desc = 'Buffer: Go to 1' })
+vim.keymap.set('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', { noremap = true, desc = 'Buffer: Go to 2' })
+vim.keymap.set('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', { noremap = true, desc = 'Buffer: Go to 3' })
+
+vim.keymap.set('n', '<A-p>', '<Cmd>BufferPin<CR>', { noremap = true, desc = 'Buffer: Pin/Unpin'})
+vim.keymap.set('n', '<A-c>', '<Cmd>BufferClose<CR>', { noremap = true, desc = 'Buffer: Close Active Tab' })
+vim.keymap.set('n', '<A-j>', '<Cmd>BufferPick<CR>', { noremap = true, desc = 'Buffer: Pick jump' })
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
