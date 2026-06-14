@@ -1,8 +1,8 @@
 -- Neo-tree is a Neovim plugin to browse the file system
 -- https://github.com/nvim-neo-tree/neo-tree.nvim
 
----@module 'lazy'
----@type LazySpec
+---@module 'neo-tree'
+---@type neotree.Config
 return {
   'nvim-neo-tree/neo-tree.nvim',
   version = '*',
@@ -15,15 +15,35 @@ return {
   keys = {
     { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
   },
-  ---@module 'neo-tree'
-  ---@type neotree.Config
   opts = {
     filesystem = {
+      use_libuv_file_watcher = true,
+      follow_current_file = {
+        enabled = true,
+      },
       window = {
         mappings = {
           ['\\'] = 'close_window',
         },
       },
     },
+
+    default_component_configs = {
+      git_status = {
+        symbols = {
+          -- Change the modified property to a standard, universally supported symbol
+          modified  = "●", -- A solid clean circle
+          unstaged  = "○",
+          staged    = "✓",
+          untracked = "?",
+          renamed   = "➜",
+          conflict  = "",
+        },
+      },
+    },
   },
+  config = function(_, opts)
+    require('neo-tree').setup(opts)
+    print "neo-tree.lua: Setup function called"
+  end,
 }
