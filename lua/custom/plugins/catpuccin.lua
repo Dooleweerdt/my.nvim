@@ -10,6 +10,7 @@ return {
     "catppuccin/nvim",
     name = "catppuccin",
     priority = 1000, -- Make sure to load this first before all other start plugins
+    lazy = false,
     config = function()
       require("catppuccin").setup({
         -- Optional: Configure Catppuccin options here
@@ -20,6 +21,7 @@ return {
 
       -- Set the colorscheme inside the config function
       vim.cmd.colorscheme "catppuccin"
+      print "Catpuccin.lua - Colorscheme set"
     end,
   },
 }
