@@ -67,13 +67,13 @@ vim.keymap.set('n', '<A-.>', '<Cmd>BufferNext<CR>',     { noremap = true, silent
 vim.keymap.set('n', '<A-<>', '<Cmd>BufferMovePrevious<CR>', { noremap = true, silent = true, desc = 'Buffer: Move Previous' })
 vim.keymap.set('n', '<A->>', '<Cmd>BufferMoveNext<CR>',     { noremap = true, silent = true, desc = 'Buffer: Move Next' })
 
-vim.keymap.set('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', { noremap = true, desc = 'Buffer: Go to 1' })
-vim.keymap.set('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', { noremap = true, desc = 'Buffer: Go to 2' })
-vim.keymap.set('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', { noremap = true, desc = 'Buffer: Go to 3' })
+vim.keymap.set('n', '<A-1>', '<Cmd>BufferGoto 1<CR>', { noremap = true, silent = true, desc = 'Buffer: Go to 1' })
+vim.keymap.set('n', '<A-2>', '<Cmd>BufferGoto 2<CR>', { noremap = true, silent = true, desc = 'Buffer: Go to 2' })
+vim.keymap.set('n', '<A-3>', '<Cmd>BufferGoto 3<CR>', { noremap = true, silent = true, desc = 'Buffer: Go to 3' })
 
-vim.keymap.set('n', '<A-p>', '<Cmd>BufferPin<CR>', { noremap = true, desc = 'Buffer: Pin/Unpin'})
-vim.keymap.set('n', '<A-c>', '<Cmd>BufferClose<CR>', { noremap = true, desc = 'Buffer: Close Active Tab' })
-vim.keymap.set('n', '<A-j>', '<Cmd>BufferPick<CR>', { noremap = true, desc = 'Buffer: Pick jump' })
+vim.keymap.set('n', '<A-p>', '<Cmd>BufferPin<CR>', { noremap = true, silent = true, desc = 'Buffer: Pin/Unpin'})
+vim.keymap.set('n', '<A-c>', '<Cmd>BufferClose<CR>', { noremap = true, silent = true, desc = 'Buffer: Close Active Tab' })
+vim.keymap.set('n', '<A-j>', '<Cmd>BufferPick<CR>', { noremap = true, silent = true, desc = 'Buffer: Pick jump' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

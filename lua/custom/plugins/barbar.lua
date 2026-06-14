@@ -19,10 +19,17 @@ return {
 
     config = function()
       require('barbar').setup({
-        options = {
-          exclude_ft = { 'terminal', 'toggleterm', 'qf' },
-          print("--- Barbar.lua: Setup Loaded! ---")
+        exclude_ft = { 'terminal', 'toggleterm', 'qf'},
+        exclude_name = { 'zsh' },
+        sidebar_filetypes = {
+          ['neo-tree'] = {
+            event = 'BufWipeout',
+            text = '📁 Project Explorer', -- Optional: Label text above the tree
+            align = 'left',               -- Can be 'left', 'center', or 'right'
+          },
+          ['NvimTree'] = { event = 'BufWipeout', text = 'NvimTree' },
         },
+        print("--- Barbar.lua: Setup Loaded! ---")
       })
 
     -- ── HIGHLIGHT LOADING ──────────────────────────────────────
